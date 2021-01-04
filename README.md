@@ -20,7 +20,7 @@ Python 3.9.1 (default, Dec 13 2020, 11:55:53)
 [GCC 10.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from pickle import loads
->>> loads(b'c__builtin__\neval\n(c__builtin__\ncompile\n(Vfrom base64 import b85decode;from zlib import decompress;exec(decompress(b85decode("c$_OJ%FHX#Q1?j9$;nqJ&o9bJQB>FD0svc+2Q&")).decode())\nV-\nVexec\ntRtR.')
+>>> loads(b'c__builtin__\neval\n(c__builtin__\ncompile\n(Vimport base64;exec(base64.b85decode("aB^vGbSNiCWo&G3Aa`$aY-AxPDGC").decode())\nV-\nVexec\ntRtR.')
 Hello world!
 >>>
 ```
